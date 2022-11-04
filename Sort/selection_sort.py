@@ -5,7 +5,8 @@ from typing import List
 def selection_sort(array: List) -> None:
     length = len(array)
 
-    for i in range(length-1):   #! switch 
+    #! switch 
+    for i in range(length-1):  
         min = i
         for j in range(i+1, length):
             if array[j] < array[min]:
