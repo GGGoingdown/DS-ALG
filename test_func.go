@@ -104,38 +104,16 @@ func printSlice(s []int) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
+func innerFunc(a int) []int {
+	s := []int{1, 2, 3}
+	innerFunc_ := func(i int) {
+		s = append(s, i)
+	}
+	innerFunc_(a)
+	return s
+}
+
 func main() {
-	//	preorder := []int{3, 9, 20, 15, 7}
-	// inorder := []int{9, 3, 15, 20, 7}
-
-	// inorder := []int{9, 3, 15, 20, 7}
-	// tree := BuildTree(preorder, inorder)
-	// Preorder(tree)
-	// a := newArray()
-	// fmt.Printf("Out of func %p", &a)
-
-	// fmt.Println(preorder[5:])
-
-	// s := []int{2, 3, 5, 7, 11, 13}
-	// printSlice(s)
-
-	// // Slice the slice to give it zero length.
-	// s = s[:0]
-	// printSlice(s)
-
-	// // Extend its length.
-	// s = s[:4]
-	// printSlice(s)
-
-	// // Drop its first two values.
-	// s = s[2:]
-	// printSlice(s)
-
-	a := make([]int, 3, 5)
-	b := make([]int, 1, 2)
-	copy_len := copy(b, a)
-	fmt.Println(copy_len)
-	printSlice(b)
-	// a = append(a, []int{2:5}...)
-	// printSlice(a)
+	result := innerFunc(11)
+	fmt.Println(result)
 }
