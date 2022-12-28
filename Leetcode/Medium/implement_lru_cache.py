@@ -117,6 +117,7 @@ class LRUModel:
         del self._hash[last_node.key]
         self.tail.pre = last_node.pre
         last_node.pre.next = self.tail
+        self.size -= 1
 
     def show_link(self) -> None:
         cur_node = self.head
